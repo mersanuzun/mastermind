@@ -1,0 +1,40 @@
+.guessBoard tr td {
+    border: solid 1px;    
+}
+
+.game-area table{
+    margin: auto;   
+}
+.guess {
+    background-color: darkslategray;
+}
+.guess-color {
+    border: solid 1px blue;
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    background-color: aqua;
+}
+
+.result{
+    background-color: bisque;
+    width: 50px;
+}
+
+.selection-color{
+    border: solid 1px;
+    border-radius: 15px;
+    width: 25px;
+    height: 25px;
+    margin: auto
+}
+
+.hidden-color{
+    background-color: firebrick;
+    width: 25px;
+    height: 30px;
+}
+
+.selection-colors-area{
+    margin : 15px;
+}
