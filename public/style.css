@@ -39,15 +39,7 @@
     margin : 15px;
 }
 
-.correctResult{
-    border-radius: 10px;
-    border: solid 1px;
-    margin: 1px; 
-    width: 10px; 
-    height: 10px;
-    display: inline-block;
-}
-.wrongResult{
+.results{
     border-radius: 10px;
     border: solid 1px;
     margin: 1px; 

@@ -5,6 +5,8 @@ var hiddenColorLimit = 4;
 var hiddenColors;
 var selectedColorNumber = 0;
 var guessNumber = 1;
+var wrongPlaceColor = "Red";
+var correctColor = "Green";
 $(document).ready(function(){
     var $table, $tr, $td;
     function drawBoard(){
@@ -16,11 +18,18 @@ $(document).ready(function(){
                 if (j == hiddenColorLimit){
                     if (j == hiddenColorLimit && i == guessLimit + 1) break;
                     $td.addClass("result");
+                    var result = $("<div>");
                     for (var k = 0; k < hiddenColorLimit; k++){
-                       $td.append($("<div>").addClass("correctResult")); 
+                        result = $("<div>");
+                        result.addClass("correctResult" + i);
+                        result.addClass("results");
+                        $td.append(result); 
                     }
                     for (var l = 0; l < hiddenColorLimit; l++){
-                        $td.append($("<div>").addClass("wrongResult")); 
+                        result = $("<div>");
+                        result.addClass("wrongResult" + i);
+                        result.addClass("results");
+                        $td.append(result);
                     }
                 }else{
                     if (i == guessLimit + 1){
@@ -70,10 +79,15 @@ $(document).ready(function(){
             guess = new Guess(); // create a new guess objects
             guess.setColors(guessColors); // setting colors
             guess.checkColors(hiddenColors); // check colors
-            console.log(guess)
             $(".colors tbody td").each(function(){
                 $(this).show();
             });
+            for (var i = 0; i < guess.correctColorNumber; i++){
+                $(".correctResult" + guessNumber + ":eq("+ i +")").css("backgroundColor", correctColor);    
+            }
+            for (var i = 0; i < guess.wrongPlaceColorNumber; i++){
+                $(".wrongResult" + guessNumber + ":eq("+ i +")").css("backgroundColor", wrongPlaceColor);    
+            }
             guessColors = [];
             selectedColorNumber = 0;
             guessNumber++;
