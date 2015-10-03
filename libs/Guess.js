@@ -1,9 +1,22 @@
-function Guess(color1, color2, color3, color4){
-    this.color1 = color1;
-    this.color2 = color2;
-    this.color3 = color3;
-    this.color4 = color4;
-    this.wrongColorNumber;
-    this.wrongPlaceColorNumber;
-    this.correctColorNumber;
+function Guess(){
+    this.colorIndexes = [];
+    this.wrongPlaceColorNumber = 0;
+    this.correctColorNumber = 0;
+}
+Guess.prototype.setColors = function(colorIndexes){
+    for(var i = 0; i < colorIndexes.length; i++){
+        this.colorIndexes.push(colorIndexes[i]);
+    }
+}
+Guess.prototype.checkColors = function(hiddenColors){
+    for (var i = 0; i < hiddenColors.colorIndexes.length; i++){
+        for (var j = 0; j < this.colorIndexes.length; j++){
+            if (hiddenColors.colorIndexes[i] == this.colorIndexes[j]){
+                if (i == j){
+                    this.correctColorNumber++;
+                }else 
+                    this.wrongPlaceColorNumber++;
+            }
+        }
+    }
 }

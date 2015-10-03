@@ -18,7 +18,7 @@
 
 .result{
     background-color: bisque;
-    width: 50px;
+    width: 60px;
 }
 
 .selection-color{
@@ -37,4 +37,21 @@
 
 .selection-colors-area{
     margin : 15px;
+}
+
+.correctResult{
+    border-radius: 10px;
+    border: solid 1px;
+    margin: 1px; 
+    width: 10px; 
+    height: 10px;
+    display: inline-block;
+}
+.wrongResult{
+    border-radius: 10px;
+    border: solid 1px;
+    margin: 1px; 
+    width: 10px; 
+    height: 10px;
+    display: inline-block;
 }
