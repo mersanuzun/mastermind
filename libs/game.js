@@ -6,7 +6,8 @@ var hiddenColors;
 var selectedColorNumber = 0;
 var guessNumber = 1;
 var wrongPlaceColor = "Red";
-var correctColor = "Green";
+var correctColor = "green";
+
 $(document).ready(function(){
     var $table, $tr, $td;
     function drawBoard(){
@@ -88,16 +89,17 @@ $(document).ready(function(){
             for (var i = 0; i < guess.wrongPlaceColorNumber; i++){
                 $(".wrongResult" + guessNumber + ":eq("+ i +")").css("backgroundColor", wrongPlaceColor);    
             }
+            if (guess.correctColorNumber == hiddenColorLimit){
+                for(var i = 0; i < guess.colorIndexes.length; i++){
+                    $(".hidden-color div:eq(" + i + ")").addClass("show-hidden-color");
+                    $(".hidden-color div:eq(" + i + ")").css("background-color", colors[guess.colorIndexes[i]])
+                }
+                $(".colors td").off("click");
+            }
             guessColors = [];
             selectedColorNumber = 0;
             guessNumber++;
             guesses.push(guess); // guess is pushed to global guesses variable
         }
     })
-    /*
-    a = new Guess()
-    a.setColors([1,9,4,8])
-    b = new Guess()
-    b.setColors([1,4,2,8])
-    b.checkColors(a)*/
 })
